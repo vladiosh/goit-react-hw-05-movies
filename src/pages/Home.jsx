@@ -1,13 +1,11 @@
 export const Home = () => {
   return (
     <main>
-      <h1>Tranding today</h1>
+      <section>
+        <h1>Tranding today</h1>
+      </section>
 
-      <ul>
-        <li>a</li>
-        <li>a</li>
-        <li>a</li>
-      </ul>
+      <ul></ul>
     </main>
   );
 };

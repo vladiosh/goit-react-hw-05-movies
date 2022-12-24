@@ -1,8 +1,9 @@
-import { Outlet, useParams, Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 // import { getProductById } from '../fakeAPI';
 
 export const MovieDetails = () => {
-  const { movieId } = useParams();
+  // const { movieId } = useParams();
+
   //   const product = getProductById(id);
   return (
     <main>
