@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Nav = styled.nav`
-  margin: 0 auto;
-`;
-
 export const Page = styled.main`
   padding: 0 16px;
   margin-left: auto;
@@ -13,8 +9,6 @@ export const Page = styled.main`
 `;
 
 export const Header = styled.header`
-  display: flex;
-
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -25,6 +19,9 @@ export const Header = styled.header`
 
   > nav {
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
   }
 `;
 
