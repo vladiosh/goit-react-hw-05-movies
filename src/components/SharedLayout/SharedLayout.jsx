@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Container, Link, Header, HomeContainer } from './SharedLayout.styled';
+import { Container, Link, Header, Page } from './SharedLayout.styled';
 // import { Toaster } from 'react-hot-toast';
 
 export const SharedLayout = () => {
@@ -11,9 +11,9 @@ export const SharedLayout = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </Header>
-      <HomeContainer>
+      <Page>
         <Outlet />
-      </HomeContainer>
+      </Page>
       {/* <Toaster position="top-right" reverseOrder={false} /> */}
     </Container>
   );
