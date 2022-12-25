@@ -1,10 +1,16 @@
 import imageDefault from 'image/defaultImg.jpg';
-import { CardActor, ImageActor } from './ActorList.styled';
+import {
+  CardActor,
+  ImageActor,
+  ListActor,
+  ActorName,
+  Text,
+} from './ActorList.styled';
 
 export const ActorList = ({ actors }) => {
   return (
     <section>
-      <ul>
+      <ListActor>
         {actors.map(({ id, profile_path, name, character }) => {
           return (
             <CardActor key={id}>
@@ -15,13 +21,15 @@ export const ActorList = ({ actors }) => {
                     : imageDefault
                 }
                 alt={name}
+                width="150px"
+                height="225px"
               />
-              <p>{name}</p>
-              <p>{character}</p>
+              <ActorName>{name}</ActorName>
+              <Text>{character}</Text>
             </CardActor>
           );
         })}
-      </ul>
+      </ListActor>
     </section>
   );
 };

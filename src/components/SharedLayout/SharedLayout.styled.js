@@ -1,19 +1,20 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const Container = styled.div`
+export const Nav = styled.nav`
   margin: 0 auto;
-  background-color: #444;
 `;
 
 export const Page = styled.main`
   padding: 0 16px;
-  width: 100vw;
-  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
 `;
 
 export const Header = styled.header`
   display: flex;
+
   align-items: center;
   justify-content: space-between;
   gap: 12px;
