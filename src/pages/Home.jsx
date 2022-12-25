@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchTrendingMovies } from '../servises/fetchTrendingMovies';
+import { fetchMovies } from '../servises/fetchMovies';
 import { TrendingMovieList } from '../components/TrendingMovieList/TrendingMovieList';
 
 export const Home = () => {
@@ -8,7 +8,7 @@ export const Home = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const dataMovies = await fetchTrendingMovies(
+        const dataMovies = await fetchMovies(
           'https://api.themoviedb.org/3/trending/movie/week?api_key=2a3036180539eed9a276bdc58fa572fc'
         );
 

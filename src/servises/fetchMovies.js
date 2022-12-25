@@ -16,7 +16,7 @@ import axios from 'axios';
 //   return dataTrendingMovies;
 // };
 
-export const fetchTrendingMovies = async url => {
+export const fetchMovies = async url => {
   const response = await axios.get(url);
 
   return response.data;

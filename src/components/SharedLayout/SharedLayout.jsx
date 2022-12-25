@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Container, Link, Header } from './SharedLayout.styled';
+import { Toaster } from 'react-hot-toast';
 
 export const SharedLayout = () => {
   return (
@@ -10,6 +11,7 @@ export const SharedLayout = () => {
           <Link to="/movies">Movies</Link>
         </nav>
       </Header>
+      <Toaster position="top-right" reverseOrder={false} />
       <Outlet />
     </Container>
   );

@@ -8,10 +8,10 @@ export const TrendingMovieList = ({ movies }) => {
 
       {movies.length > 0 && (
         <ul>
-          {movies.map(({ id, original_title }) => {
+          {movies.map(movie => {
             return (
-              <li key={id}>
-                <Link to={`${id}`}>{original_title}</Link>
+              <li key={movie.id}>
+                <Link to={`/movies/${movie.id}`}>{movie.original_title}</Link>
               </li>
             );
           })}
