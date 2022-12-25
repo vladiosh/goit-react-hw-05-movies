@@ -1,22 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import { Text, FilmLink, TrendItem } from './TrendingMovieList.styled';
 
 export const TrendingMovieList = ({ movies }) => {
   return (
-    <>
-      <h1>Trending today</h1>
+    <main>
+      <Text>Trending today</Text>
 
       {movies.length > 0 && (
         <ul>
           {movies.map(movie => {
             return (
-              <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`}>{movie.original_title}</Link>
-              </li>
+              <TrendItem key={movie.id}>
+                <FilmLink to={`/movies/${movie.id}`}>
+                  {movie.original_title}
+                </FilmLink>
+              </TrendItem>
             );
           })}
         </ul>
       )}
-    </>
+    </main>
   );
 };
