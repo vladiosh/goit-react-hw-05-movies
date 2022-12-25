@@ -1,12 +1,37 @@
+import { fetchMovies } from '../../servises/fetchMovies';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { ActorList } from '../ActorList/ActorList';
+
 export const Cast = () => {
-  return (
-    <section>
-      <h2>Cast</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, nesciunt
-        veniam. Excepturi itaque, voluptates fugiat perspiciatis quo saepe! Iste
-        eaque porro eveniet error dicta, modi ipsum hic quis minima inventore.
-      </p>
-    </section>
-  );
+  const [actors, setActors] = useState([]);
+  const [error, setError] = useState(null);
+  const { movieId } = useParams();
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const dataMovie = await fetchMovies(
+          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=2a3036180539eed9a276bdc58fa572fc&language=en-US`
+        );
+
+        const actors = dataMovie.cast.map(
+          ({ id, name, character, profile_path }) => ({
+            id,
+            name,
+            character,
+            profile_path,
+          })
+        );
+        console.log(actors);
+        setActors(actors);
+      } catch (error) {
+        console.log(error.message);
+        setError(error);
+      }
+    };
+
+    fetch();
+  }, [movieId]);
+
+  return <>{actors && actors.length > 0 && <ActorList actors={actors} />}</>;
 };

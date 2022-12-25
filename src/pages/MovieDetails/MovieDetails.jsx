@@ -4,7 +4,7 @@ import { fetchMovies } from '../../servises/fetchMovies';
 import { useState, useEffect } from 'react';
 import { getYear } from 'servises/getYear';
 import { getRaiting } from 'servises/getRaiting';
-import { DefaultImg } from '../../DefaultImage/DefaultImg';
+import imageDefault from 'image/defaultImg.jpg';
 import {
   DetailsSection,
   Info,
@@ -13,6 +13,9 @@ import {
   Text,
   Genres,
   GenresItem,
+  LinkList,
+  LinkItem,
+  Link,
 } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
@@ -27,12 +30,9 @@ export const MovieDetails = () => {
           `https://api.themoviedb.org/3/movie/${movieId}?api_key=2a3036180539eed9a276bdc58fa572fc&language=en-US`
         );
 
-        console.log(dataMovie);
-
         setMovie(dataMovie);
       } catch (error) {
         console.log(error.message);
-
         setError(error);
       }
     };
@@ -48,21 +48,19 @@ export const MovieDetails = () => {
     movie;
 
   return (
-    <DetailsSection>
-      {error && <div>Something went wrong. Try again</div>}
+    <>
       {movie && (
         <DetailsSection>
           <div>
             <img
               src={
-                poster_path ? (
-                  `https://image.tmdb.org/t/p/w500/${poster_path}`
-                ) : (
-                  <DefaultImg />
-                )
+                poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                  : imageDefault
               }
               alt={title}
               width="250px"
+              height="375px"
             />
           </div>
           <Info>
@@ -82,10 +80,21 @@ export const MovieDetails = () => {
                 <GenresItem key={el.id}>{el.name}</GenresItem>
               ))}
             </Genres>
+
+            <Text>Additional information</Text>
+            <LinkList>
+              <LinkItem>
+                <Link to="cast">Cast</Link>
+              </LinkItem>
+              <li>
+                <Link to="reviews">Reviews</Link>
+              </li>
+            </LinkList>
           </Info>
         </DetailsSection>
       )}
+
       <Outlet />
-    </DetailsSection>
+    </>
   );
 };

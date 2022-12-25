@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const DetailsSection = styled.div`
+export const DetailsSection = styled.section`
   display: flex;
 `;
 
@@ -21,6 +22,8 @@ export const Description = styled.p`
   font-size: 14px;
   margin: 0;
   margin-top: 10px;
+  width: 700px;
+  line-height: 1.3;
 `;
 
 export const Text = styled.h3`
@@ -44,5 +47,30 @@ export const Genres = styled.ul`
 export const GenresItem = styled.li`
   &:not(:last-child) {
     margin-bottom: 5px;
+  }
+`;
+
+export const LinkList = styled.ul`
+  display: flex;
+  margin-top: 15px;
+`;
+
+export const LinkItem = styled.li`
+  margin-left: 12px;
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+`;
+
+export const Link = styled(NavLink)`
+  padding: 5px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+
+  &.active {
+    color: lightgray;
+    box-shadow: 0 0 5px 3px rgba(11, 127, 171, 0.7);
   }
 `;

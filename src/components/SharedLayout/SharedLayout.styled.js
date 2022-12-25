@@ -8,6 +8,7 @@ export const Container = styled.div`
 
 export const Page = styled.main`
   padding: 0 16px;
+  width: 100vw;
   height: 100vh;
 `;
 
