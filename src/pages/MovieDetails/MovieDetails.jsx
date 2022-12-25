@@ -2,10 +2,18 @@ import { useParams } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { fetchMovies } from '../../servises/fetchMovies';
 import { useState, useEffect } from 'react';
-import { getDateYear } from 'servises/getYear';
+import { getYear } from 'servises/getYear';
 import { getRaiting } from 'servises/getRaiting';
 import { DefaultImg } from '../../DefaultImage/DefaultImg';
-import {} from './MovieDetails.styled';
+import {
+  DetailsSection,
+  Info,
+  Name,
+  Description,
+  Text,
+  Genres,
+  GenresItem,
+} from './MovieDetails.styled';
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -40,40 +48,44 @@ export const MovieDetails = () => {
     movie;
 
   return (
-    <div>
+    <DetailsSection>
       {error && <div>Something went wrong. Try again</div>}
       {movie && (
-        <div>
-          <img
-            src={
-              poster_path ? (
-                `https://image.tmdb.org/t/p/w500/${poster_path}`
-              ) : (
-                <DefaultImg />
-              )
-            }
-            alt={title}
-            width="250px"
-          />
-          <h2>
-            {release_date ? `${title} (${getDateYear(release_date)})` : title}
-          </h2>
-          <p>
-            {vote_average
-              ? `User Score: ${getRaiting(vote_average)}% `
-              : 'User Score: no score'}
-          </p>
-          <h3>Overview:</h3>
-          <p>{overview ? overview : 'No overview'}</p>
-          <h3>Genres:</h3>
-          <ul>
-            {genres.map(el => (
-              <li key={el.id}>{el.name}</li>
-            ))}
-          </ul>
-        </div>
+        <DetailsSection>
+          <div>
+            <img
+              src={
+                poster_path ? (
+                  `https://image.tmdb.org/t/p/w500/${poster_path}`
+                ) : (
+                  <DefaultImg />
+                )
+              }
+              alt={title}
+              width="250px"
+            />
+          </div>
+          <Info>
+            <Name>
+              {release_date ? `${title} (${getYear(release_date)})` : title}
+            </Name>
+            <Description>
+              {vote_average
+                ? `User Score: ${getRaiting(vote_average)}% `
+                : 'User Score: no score'}
+            </Description>
+            <Text>Overview:</Text>
+            <Description>{overview ? overview : 'No overview'}</Description>
+            <Text>Genres:</Text>
+            <Genres>
+              {genres.map(el => (
+                <GenresItem key={el.id}>{el.name}</GenresItem>
+              ))}
+            </Genres>
+          </Info>
+        </DetailsSection>
       )}
       <Outlet />
-    </div>
+    </DetailsSection>
   );
 };
