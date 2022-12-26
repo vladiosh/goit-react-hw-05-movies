@@ -26,6 +26,7 @@ export const Header = styled.header`
 `;
 
 export const Link = styled(NavLink)`
+  cursor: pointer;
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
@@ -35,5 +36,8 @@ export const Link = styled(NavLink)`
   &.active {
     color: lightgray;
     box-shadow: 0 0 5px 3px rgba(11, 127, 171, 0.7);
+  }
+  &:hover {
+    color: lightgray;
   }
 `;
