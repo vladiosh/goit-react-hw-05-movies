@@ -31,6 +31,12 @@ export const Reviews = () => {
   }, [movieId]);
 
   return (
-    <>{reviews ? <ReviewList reviews={reviews} /> : <div>No reviews</div>}</>
+    <>
+      {reviews.length > 0 ? (
+        <ReviewList reviews={reviews} />
+      ) : (
+        <div>No reviews</div>
+      )}
+    </>
   );
 };
