@@ -22,7 +22,7 @@ export const Cast = () => {
             profile_path,
           })
         );
-        console.log(actors);
+
         setActors(actors);
       } catch (error) {
         console.log(error.message);
@@ -33,5 +33,7 @@ export const Cast = () => {
     fetch();
   }, [movieId]);
 
-  return <>{actors && actors.length > 0 && <ActorList actors={actors} />}</>;
+  return (
+    <>{actors ? <ActorList actors={actors} /> : <div>No actors list</div>}</>
+  );
 };
