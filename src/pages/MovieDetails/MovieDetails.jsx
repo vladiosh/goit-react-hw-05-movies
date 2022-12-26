@@ -20,7 +20,7 @@ import {
 
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
-  const [error, setError] = useState(null);
+
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -33,7 +33,6 @@ export const MovieDetails = () => {
         setMovie(dataMovie);
       } catch (error) {
         console.log(error.message);
-        setError(error);
       }
     };
 

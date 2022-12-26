@@ -5,7 +5,7 @@ import { ReviewList } from '../ReviewList/ReviewList';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [error, setError] = useState(null);
+
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -24,7 +24,6 @@ export const Reviews = () => {
         setReviews(reviews);
       } catch (error) {
         console.log(error.message);
-        setError(error);
       }
     };
 

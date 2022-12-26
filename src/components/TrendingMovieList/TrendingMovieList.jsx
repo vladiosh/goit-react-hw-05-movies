@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Text, FilmLink, TrendItem } from './TrendingMovieList.styled';
 
 export const TrendingMovieList = ({ movies }) => {

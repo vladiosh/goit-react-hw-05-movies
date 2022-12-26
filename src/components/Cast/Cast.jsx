@@ -5,7 +5,7 @@ import { ActorList } from '../ActorList/ActorList';
 
 export const Cast = () => {
   const [actors, setActors] = useState([]);
-  const [error, setError] = useState(null);
+
   const { movieId } = useParams();
   useEffect(() => {
     const fetch = async () => {
@@ -26,7 +26,6 @@ export const Cast = () => {
         setActors(actors);
       } catch (error) {
         console.log(error.message);
-        setError(error);
       }
     };
 
