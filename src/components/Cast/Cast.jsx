@@ -1,7 +1,7 @@
 import { fetchMovies } from '../../servises/fetchMovies';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { ActorList } from '../ActorList/ActorList';
+import { CastList } from '../CastList/CastList';
 
 export const Cast = () => {
   const [actors, setActors] = useState([]);
@@ -33,6 +33,6 @@ export const Cast = () => {
   }, [movieId]);
 
   return (
-    <>{actors ? <ActorList actors={actors} /> : <div>No actors list</div>}</>
+    <>{actors ? <CastList actors={actors} /> : <div>No actors list</div>}</>
   );
 };

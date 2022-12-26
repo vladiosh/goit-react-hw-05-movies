@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchMovies } from '../servises/fetchMovies';
-import { TrendingMovieList } from '../components/TrendingMovieList/TrendingMovieList';
+import { fetchMovies } from '../../servises/fetchMovies';
+import { TrendingMovieList } from '../../components/TrendingMovieList/TrendingMovieList';
 
 export const Home = () => {
   const [moviesTrending, setMoviesTrending] = useState([]);
@@ -25,9 +25,5 @@ export const Home = () => {
     fetch();
   }, []);
 
-  return (
-    <main>
-      <TrendingMovieList movies={moviesTrending} />
-    </main>
-  );
+  return <TrendingMovieList movies={moviesTrending} />;
 };

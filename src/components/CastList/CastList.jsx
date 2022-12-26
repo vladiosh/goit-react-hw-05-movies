@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import imageDefault from 'image/defaultImg.jpg';
 import {
   CardActor,
@@ -5,9 +6,9 @@ import {
   ListActor,
   ActorName,
   Text,
-} from './ActorList.styled';
+} from './CastList.styled';
 
-export const ActorList = ({ actors }) => {
+export const CastList = ({ actors }) => {
   return (
     <section>
       <ListActor>
@@ -32,4 +33,15 @@ export const ActorList = ({ actors }) => {
       </ListActor>
     </section>
   );
+};
+
+CastList.propTypes = {
+  actors: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      profile_path: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      character: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };

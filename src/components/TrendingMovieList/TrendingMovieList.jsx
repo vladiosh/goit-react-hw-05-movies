@@ -1,9 +1,9 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { Text, FilmLink, TrendItem } from './TrendingMovieList.styled';
 
 export const TrendingMovieList = ({ movies }) => {
   return (
-    <main>
+    <section>
       <Text>Trending today</Text>
 
       {movies.length > 0 && (
@@ -19,6 +19,15 @@ export const TrendingMovieList = ({ movies }) => {
           })}
         </ul>
       )}
-    </main>
+    </section>
   );
+};
+
+TrendingMovieList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      original_title: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };

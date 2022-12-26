@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { RevItem, RevList, RevName, RevText } from './ReviewList.styled';
 
 export const ReviewList = ({ reviews }) => {
@@ -15,4 +16,14 @@ export const ReviewList = ({ reviews }) => {
       </RevList>
     </section>
   );
+};
+
+ReviewList.propTypes = {
+  reviews: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
