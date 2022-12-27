@@ -1,5 +1,4 @@
-import { useParams } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import { fetchMovies } from '../../servises/fetchMovies';
 import { useState, useEffect } from 'react';
 import { MovieItem } from '../../components/MovieItem/MovieItem';
@@ -9,8 +8,8 @@ import { Toaster } from 'react-hot-toast';
 export const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [load, setLoad] = useState(false);
-
   const { movieId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetch = async () => {
@@ -23,13 +22,14 @@ export const MovieDetails = () => {
         setMovie(dataMovie);
       } catch (error) {
         console.log(error.message);
+        navigate('/', { replace: true });
       } finally {
         setLoad(false);
       }
     };
 
     fetch();
-  }, [movieId]);
+  }, [movieId, navigate]);
 
   if (!movie) {
     return null;
@@ -38,6 +38,7 @@ export const MovieDetails = () => {
   return (
     <>
       {movie && <MovieItem movie={movie} />}
+
       {load && (
         <RotatingLines
           strokeColor="rgb(11, 127, 171)"

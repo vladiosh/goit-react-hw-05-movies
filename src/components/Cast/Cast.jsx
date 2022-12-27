@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CastList } from '../CastList/CastList';
 import { RotatingLines } from 'react-loader-spinner';
+import toast from 'react-hot-toast';
 
 export const Cast = () => {
   const [actors, setActors] = useState([]);
@@ -25,6 +26,10 @@ export const Cast = () => {
             profile_path,
           })
         );
+
+        if (actors.length === 0) {
+          toast.error(`No reviews.`);
+        }
 
         setActors(actors);
       } catch (error) {
