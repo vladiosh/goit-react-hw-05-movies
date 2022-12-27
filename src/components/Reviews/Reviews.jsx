@@ -15,7 +15,6 @@ export const Reviews = () => {
     const fetch = async () => {
       try {
         setLoad(true);
-
         const dataMovie = await fetchMovies(
           `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=2a3036180539eed9a276bdc58fa572fc&language=en-US&page=1`
         );
@@ -43,7 +42,6 @@ export const Reviews = () => {
 
   return (
     <>
-      {reviews && <ReviewList reviews={reviews} />}
       {load && (
         <RotatingLines
           strokeColor="rgb(11, 127, 171)"
@@ -53,6 +51,7 @@ export const Reviews = () => {
           visible={true}
         />
       )}
+      {reviews && <ReviewList reviews={reviews} />}
     </>
   );
 };
