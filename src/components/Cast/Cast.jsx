@@ -5,7 +5,7 @@ import { CastList } from '../CastList/CastList';
 import { RotatingLines } from 'react-loader-spinner';
 import toast from 'react-hot-toast';
 
-export const Cast = () => {
+const Cast = () => {
   const [actors, setActors] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -57,3 +57,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

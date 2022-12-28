@@ -5,7 +5,7 @@ import { ReviewList } from '../ReviewList/ReviewList';
 import { RotatingLines } from 'react-loader-spinner';
 import toast from 'react-hot-toast';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -55,3 +55,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;

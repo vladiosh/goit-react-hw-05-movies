@@ -3,7 +3,7 @@ import { fetchMovies } from '../../servises/fetchMovies';
 import { TrendingMovieList } from '../../components/TrendingMovieList/TrendingMovieList';
 import { RotatingLines } from 'react-loader-spinner';
 
-export const Home = () => {
+const Home = () => {
   const [moviesTrending, setMoviesTrending] = useState([]);
   const [load, setLoad] = useState(false);
 
@@ -45,3 +45,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

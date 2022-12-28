@@ -6,7 +6,7 @@ import { MovieList } from '../../components/MovieList/MovieList';
 import toast, { Toaster } from 'react-hot-toast';
 import { RotatingLines } from 'react-loader-spinner';
 
-export const Movies = () => {
+const Movies = () => {
   const [moviesSearch, setMoviesSearch] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [inputValue, setInputValue] = useState('');
@@ -89,3 +89,5 @@ export const Movies = () => {
     </>
   );
 };
+
+export default Movies;

@@ -1,11 +1,11 @@
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import { fetchMovies } from '../../servises/fetchMovies';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { MovieItem } from '../../components/MovieItem/MovieItem';
 
 import { Toaster } from 'react-hot-toast';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
 
   const { movieId } = useParams();
@@ -46,7 +46,11 @@ export const MovieDetails = () => {
           },
         }}
       />
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
+
+export default MovieDetails;
