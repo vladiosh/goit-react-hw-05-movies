@@ -1,4 +1,5 @@
 import { Form, Input, Button } from './SearchBox.styled';
+import PropTypes from 'prop-types';
 
 export const SearchBox = ({ handleSubmit, value, setInputValue }) => {
   return (
@@ -14,4 +15,10 @@ export const SearchBox = ({ handleSubmit, value, setInputValue }) => {
       <Button type="submit">Search</Button>
     </Form>
   );
+};
+
+SearchBox.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  setInputValue: PropTypes.func.isRequired,
 };
