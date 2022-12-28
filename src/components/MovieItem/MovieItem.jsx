@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { getYear } from 'servises/getYear';
 import { getRaiting } from 'servises/getRaiting';
 import imageDefault from 'image/defaultImg.jpg';
+import { useLocation } from 'react-router-dom';
 
 import {
   DetailsSection,
@@ -13,16 +14,21 @@ import {
   GenresItem,
   LinkList,
   LinkItem,
-  Link,
+  LinkMovie,
+  BtnGoBack,
 } from './MovieItem.styled';
 
 export const MovieItem = ({ movie }) => {
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/movies';
+
   const { title, release_date, overview, genres, vote_average, poster_path } =
     movie;
 
   return (
     <DetailsSection>
       <div>
+        <BtnGoBack to={backLinkHref}>Go back</BtnGoBack>
         <img
           src={
             poster_path
@@ -55,10 +61,10 @@ export const MovieItem = ({ movie }) => {
         <Text>Additional information</Text>
         <LinkList>
           <LinkItem>
-            <Link to="cast">Cast</Link>
+            <LinkMovie to="cast">Cast</LinkMovie>
           </LinkItem>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <LinkMovie to="reviews">Reviews</LinkMovie>
           </li>
         </LinkList>
       </Info>

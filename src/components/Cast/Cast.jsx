@@ -12,8 +12,8 @@ export const Cast = () => {
   const { movieId } = useParams();
   useEffect(() => {
     const fetch = async () => {
+      setLoad(true);
       try {
-        setLoad(true);
         const dataMovie = await fetchMovies(
           `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=2a3036180539eed9a276bdc58fa572fc&language=en-US`
         );

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const DetailsSection = styled.section`
@@ -7,6 +7,7 @@ export const DetailsSection = styled.section`
 
 export const Info = styled.div`
   margin-left: 16px;
+  margin-top: 50px;
 `;
 
 export const Name = styled.h2`
@@ -62,7 +63,7 @@ export const LinkItem = styled.li`
   }
 `;
 
-export const Link = styled(NavLink)`
+export const LinkMovie = styled(NavLink)`
   padding: 5px 8px;
   border-radius: 4px;
   text-decoration: none;
@@ -71,5 +72,23 @@ export const Link = styled(NavLink)`
   &.active {
     color: lightgray;
     box-shadow: 0 0 5px 3px rgba(11, 127, 171, 0.7);
+  }
+`;
+
+export const BtnGoBack = styled(Link)`
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: gray;
+  font-weight: 500;
+  box-shadow: 0 0 5px 3px rgba(11, 127, 171, 0.7);
+  margin-bottom: 15px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    color: lightgray;
   }
 `;

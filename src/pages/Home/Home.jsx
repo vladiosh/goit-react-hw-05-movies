@@ -9,9 +9,8 @@ export const Home = () => {
 
   useEffect(() => {
     const fetch = async () => {
+      setLoad(true);
       try {
-        setLoad(true);
-
         const dataMovies = await fetchMovies(
           'https://api.themoviedb.org/3/trending/movie/week?api_key=2a3036180539eed9a276bdc58fa572fc'
         );
