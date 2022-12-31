@@ -61,10 +61,14 @@ export const MovieItem = ({ movie }) => {
         <Text>Additional information</Text>
         <LinkList>
           <LinkItem>
-            <LinkMovie to="cast">Cast</LinkMovie>
+            <LinkMovie to="cast" state={{ from: backLinkHref }}>
+              Cast
+            </LinkMovie>
           </LinkItem>
           <li>
-            <LinkMovie to="reviews">Reviews</LinkMovie>
+            <LinkMovie to="reviews" state={{ from: backLinkHref }}>
+              Reviews
+            </LinkMovie>
           </li>
         </LinkList>
       </Info>
