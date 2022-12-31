@@ -28,7 +28,7 @@ const Cast = () => {
         );
 
         if (actors.length === 0) {
-          toast.error(`No reviews.`);
+          toast.error(`No cast.`);
         }
 
         setActors(actors);
